@@ -1,1 +1,2 @@
-
+# Konular
+Bu derste Jupyter NB ve Python Giriş ....
