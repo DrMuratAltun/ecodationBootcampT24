@@ -14,7 +14,7 @@ from sklearn.pipeline import Pipeline
 
 ## Veri setini yükle
 
-df=pd.read_excel('cars.xls')
+df=pd.read_excel(r'C:\Users\murat\Documents\EcodationBootcamp\day15\cars.xls')
 df
 X=df.drop('Price', axis=1)
 y=df['Price']
@@ -34,7 +34,7 @@ pipe=Pipeline(steps=[('preprocessor',preprocess),
                     ('model',mymodel)])
 
 pipe.fit(X_train,y_train)
-import streamlit as st
+
 def price(make,model, trim, mileage, car_type,cylinder,liter, doors, cruise, sound, leather):
     input_data=pd.DataFrame({'Make':[make],
                             'Model':[model],
@@ -49,6 +49,7 @@ def price(make,model, trim, mileage, car_type,cylinder,liter, doors, cruise, sou
                              'Leather':[leather]})
     prediction=pipe.predict(input_data)[0]
     return prediction
+import streamlit as st
 st.title("II. El Araç Fiyatı Tahmin Modeli: @drmurataltun")
 st.write("Arabanın özelliklerini seçiniz")
 make=st.selectbox('Marka',df['Make'].unique())
@@ -63,5 +64,6 @@ cruise=st.radio('Cruise',[True,False])
 sound=st.radio('Sound',[True,False])
 leather=st.radio('Leather', [True,False])
 if st.button('Tahmin Yap'):
-    pred= price(make,model, trim, mileage, car_type,cylinder,liter, doors, cruise, sound, leather)
-    st.write('Fiyat: $', round(pred[0],2))
+    #pred= price(make,model, trim, mileage, car_type,cylinder,liter, doors, cruise, sound, leather)
+    #st.write('Fiyat: $', round(pred[0],2))
+    print ('ÇAışıyor')
